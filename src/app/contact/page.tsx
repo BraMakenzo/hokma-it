@@ -1,4 +1,54 @@
+"use client";
+
+import { useState } from "react";
+
 export default function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    organisation: "",
+    service: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      setStatus("success");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        organisation: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
+
   return (
     <>
       <section className="bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 text-white">
@@ -22,7 +72,8 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold mt-3 mb-8">
               Request a Consultation
             </h2>
-            <div className="space-y-5">
+
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -30,6 +81,10 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
+                    name="firstName"
+                    required
+                    value={formData.firstName}
+                    onChange={handleChange}
                     placeholder="John"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                   />
@@ -40,46 +95,69 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
+                    required
+                    value={formData.lastName}
+                    onChange={handleChange}
                     placeholder="Smith"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                   />
                 </div>
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Email Address
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="john@company.com"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Phone Number
                 </label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="+27 00 000 0000"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Organisation
                 </label>
                 <input
                   type="text"
+                  name="organisation"
+                  value={formData.organisation}
+                  onChange={handleChange}
                   placeholder="Your company or department"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Service of Interest
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white">
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white"
+                >
                   <option value="">Select a service...</option>
                   <option>Managed IT Services</option>
                   <option>Cloud Solutions</option>
@@ -92,20 +170,41 @@ export default function ContactPage() {
                   <option>Other</option>
                 </select>
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  required
                   rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell us about your project or requirements..."
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
                 />
               </div>
-              <button className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-4 rounded-xl transition-colors duration-200">
-                Send Message
+
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full bg-blue-700 hover:bg-blue-800 disabled:bg-blue-400 text-white font-semibold py-4 rounded-xl transition-colors duration-200"
+              >
+                {status === "sending" ? "Sending..." : "Send Message"}
               </button>
-            </div>
+
+              {status === "success" && (
+                <p className="text-green-600 text-sm font-medium text-center">
+                  Message sent successfully! We&apos;ll be in touch soon.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-red-600 text-sm font-medium text-center">
+                  Something went wrong. Please try again or call us directly.
+                </p>
+              )}
+            </form>
           </div>
 
           <div>
@@ -134,7 +233,8 @@ export default function ContactPage() {
                 <div className="text-3xl">📍</div>
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Address</p>
-                  <p className="text-gray-800 font-medium">Pretoria, Gauteng, South Africa</p>
+                  <p className="text-gray-800 font-medium">108 Osler Street, Danville</p>
+                  <p className="text-gray-800 font-medium">Pretoria, 0183</p>
                 </div>
               </div>
             </div>
