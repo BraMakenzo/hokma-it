@@ -6,7 +6,7 @@ const solutions = [
     title: "Cloud Solutions",
     description:
       "Migrate, manage and optimise your infrastructure on Azure, AWS or hybrid environments. We handle architecture, security and ongoing management.",
-    outcomes: ["Reduced infrastructure costs", "99.9% uptime SLAs", "Scalable on demand"],
+    outcomes: ["Reduced infrastructure costs", "Improved reliability", "Scalable on demand"],
   },
   {
     category: "Security",
@@ -128,7 +128,7 @@ export default function SolutionsPage() {
               { value: "Government", label: "Public Sector Ready" },
               { value: "Enterprise", label: "Corporate Scale" },
               { value: "SMME", label: "Right-sized for Growth" },
-              { value: "24/7", label: "Managed Support" },
+              { value: "2012", label: "Established" },
             ].map((item) => (
               <div key={item.label} className="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
                 <div className="text-2xl font-bold text-blue-700">{item.value}</div>

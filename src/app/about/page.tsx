@@ -24,10 +24,10 @@ const values = [
 ];
 
 const stats = [
-  { value: "10+", label: "Years of ICT Experience" },
-  { value: "50+", label: "Projects Delivered" },
+  { value: "2012", label: "Year Founded" },
+  { value: "8+", label: "Clients Served" },
   { value: "3", label: "Market Segments Served" },
-  { value: "100%", label: "Commitment to Excellence" },
+  { value: "Level 1", label: "B-BBEE Contributor" },
 ];
 
 const partners = [
@@ -66,9 +66,10 @@ export default function AboutPage() {
               Your trusted technology partner
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Hokma IT is a Pretoria-based information technology company
-              delivering enterprise-grade ICT solutions to government,
-              corporate and SMME clients across South Africa.
+              Hokma IT is a Pretoria-based information technology company,
+              operating since 2012 and delivering enterprise-grade ICT
+              solutions to government, corporate and SMME clients across South
+              Africa.
             </p>
             <p className="text-gray-600 leading-relaxed mb-4">
               We provide a full spectrum of technology services — from cloud
@@ -154,43 +155,44 @@ export default function AboutPage() {
       </section>
 
       {/* B-BBEE */}
-<section className="bg-blue-700 py-20">
-  <div className="max-w-7xl mx-auto px-6">
-    <div className="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <span className="text-sm font-semibold text-blue-200 uppercase tracking-widest">
-          Transformation & Compliance
-        </span>
-        <h2 className="text-4xl font-bold text-white mt-3 mb-6">
-          100% Black-Owned — B-BBEE Level 1 Contributor
-        </h2>
-        <p className="text-blue-100 leading-relaxed text-lg">
-          As a 100% Black-owned, B-BBEE Level 1 Contributor, we are committed
-          to South Africa&apos;s transformation agenda. Partnering with us
-          contributes directly to your B-BBEE procurement scorecard —
-          delivering technological excellence and regulatory alignment in a
-          single, high-value engagement.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white/10 rounded-2xl p-8 text-center backdrop-blur-sm">
-          <div className="text-4xl font-bold text-white">Level 1</div>
-          <div className="mt-2 text-sm text-blue-200 font-medium">B-BBEE Contributor</div>
-        </div>
-        <div className="bg-white/10 rounded-2xl p-8 text-center backdrop-blur-sm">
-          <div className="text-4xl font-bold text-white">100%</div>
-          <div className="mt-2 text-sm text-blue-200 font-medium">Black-Owned</div>
-        </div>
-        <div className="bg-white/10 rounded-2xl p-8 text-center backdrop-blur-sm col-span-2">
-          <div className="text-2xl font-bold text-white">Procurement Ready</div>
-          <div className="mt-2 text-sm text-blue-200 font-medium">
-            Contributes to your B-BBEE scorecard
+      <section className="bg-blue-700 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-sm font-semibold text-blue-200 uppercase tracking-widest">
+                Transformation & Compliance
+              </span>
+              <h2 className="text-4xl font-bold text-white mt-3 mb-6">
+                100% Black-Owned — B-BBEE Level 1 Contributor
+              </h2>
+              <p className="text-blue-100 leading-relaxed text-lg">
+                As a 100% Black-owned, B-BBEE Level 1 Contributor offering 135%
+                procurement recognition, we are committed to South Africa&apos;s
+                transformation agenda. Partnering with us contributes directly to
+                your B-BBEE procurement scorecard — delivering technological
+                excellence and regulatory alignment in a single, high-value
+                engagement.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/10 rounded-2xl p-8 text-center backdrop-blur-sm">
+                <div className="text-4xl font-bold text-white">Level 1</div>
+                <div className="mt-2 text-sm text-blue-200 font-medium">B-BBEE Contributor</div>
+              </div>
+              <div className="bg-white/10 rounded-2xl p-8 text-center backdrop-blur-sm">
+                <div className="text-4xl font-bold text-white">100%</div>
+                <div className="mt-2 text-sm text-blue-200 font-medium">Black-Owned</div>
+              </div>
+              <div className="bg-white/10 rounded-2xl p-8 text-center backdrop-blur-sm col-span-2">
+                <div className="text-2xl font-bold text-white">135% Procurement Recognition</div>
+                <div className="mt-2 text-sm text-blue-200 font-medium">
+                  Maximum value contribution to your B-BBEE scorecard
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Partners */}
       <section className="bg-gray-50 py-20">

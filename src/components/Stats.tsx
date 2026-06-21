@@ -1,8 +1,8 @@
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "30+", label: "Clients Served" },
-  { value: "24/7", label: "Managed Support" },
-  { value: "99%", label: "Client Satisfaction" },
+  { value: "2012", label: "Founded" },
+  { value: "8+", label: "Clients Served" },
+  { value: "Level 1", label: "B-BBEE Contributor" },
+  { value: "100%", label: "Black-Owned" },
 ];
 
 export default function Stats() {

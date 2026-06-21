@@ -19,9 +19,9 @@ const reasons = [
   },
   {
     icon: "🕐",
-    title: "24/7 Support",
+    title: "Business Hours Support",
     description:
-      "Round-the-clock managed support ensures your systems stay operational and issues are resolved before they impact your business.",
+      "Reliable, responsive support during business hours, Monday to Friday, ensuring your systems and team are well taken care of.",
   },
   {
     icon: "🤝",
