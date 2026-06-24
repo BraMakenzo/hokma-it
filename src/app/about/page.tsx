@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import Image from "next/image";
 
 const values = [
   {
@@ -31,12 +32,12 @@ const stats = [
 ];
 
 const partners = [
-  "Tarsus Distribution",
-  "Bitdefender",
-  "Avast Business",
-  "AVG Business",
-  "First Distribution",
-  "Lenovo",
+  { name: "Tarsus Distribution", img: "/5.jpg" },
+  { name: "First Distribution", img: "/6.png" },
+  { name: "Avast Business", img: "/7.jpg" },
+  { name: "AVG Business", img: "/8.png" },
+  { name: "Bitdefender", img: "/4.png" },
+  { name: "Lenovo", img: "/download.jpg" },
 ];
 
 export default function AboutPage() {
@@ -67,9 +68,8 @@ export default function AboutPage() {
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
               Hokma IT is a Pretoria-based information technology company,
-              operating since 2012 and delivering enterprise-grade ICT
-              solutions to government, corporate and SMME clients across South
-              Africa.
+              operating since 2012 and delivering enterprise-grade ICT solutions
+              to government, corporate and SMME clients across South Africa.
             </p>
             <p className="text-gray-600 leading-relaxed mb-4">
               We provide a full spectrum of technology services — from cloud
@@ -168,8 +168,8 @@ export default function AboutPage() {
               <p className="text-blue-100 leading-relaxed text-lg">
                 As a 100% Black-owned, B-BBEE Level 1 Contributor offering 135%
                 procurement recognition, we are committed to South Africa&apos;s
-                transformation agenda. Partnering with us contributes directly to
-                your B-BBEE procurement scorecard — delivering technological
+                transformation agenda. Partnering with us contributes directly
+                to your B-BBEE procurement scorecard — delivering technological
                 excellence and regulatory alignment in a single, high-value
                 engagement.
               </p>
@@ -207,13 +207,19 @@ export default function AboutPage() {
             We work with industry-leading technology vendors to deliver the
             best solutions to our clients.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {partners.map((partner) => (
               <div
-                key={partner}
-                className="bg-white border border-gray-200 rounded-xl px-8 py-4 text-sm font-semibold text-gray-700 shadow-sm"
+                key={partner.name}
+                className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow"
               >
-                {partner}
+                <Image
+                  src={partner.img}
+                  alt={partner.name}
+                  width={120}
+                  height={50}
+                  className="h-10 w-auto object-contain"
+                />
               </div>
             ))}
           </div>

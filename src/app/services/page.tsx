@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import Image from "next/image";
 
 const categories = [
   {
@@ -116,11 +117,23 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Visual Banner */}
+<section className="max-w-7xl mx-auto px-6 pt-16">
+  <div className="rounded-3xl overflow-hidden h-64">
+    <Image
+      src="/11.jpg"
+      alt="Innovative IT solutions"
+      width={1200}
+      height={400}
+      className="w-full h-full object-cover"
+    />
+  </div>
+</section>
+
       {/* Services */}
-      <section className="max-w-7xl mx-auto px-6 py-24 space-y-20">
+      <section className="max-w-7xl mx-auto px-6 py-16 space-y-20">
         {categories.map((cat) => (
           <div key={cat.label}>
-            {/* Category header */}
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px flex-1 bg-slate-100" />
               <span className="text-xs font-semibold tracking-widest uppercase text-blue-600">
@@ -128,12 +141,9 @@ export default function ServicesPage() {
               </span>
               <div className="h-px flex-1 bg-slate-100" />
             </div>
-
             <p className="text-center text-gray-500 max-w-xl mx-auto mb-10">
               {cat.description}
             </p>
-
-            {/* Cards */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {cat.cards.map((card) => (
                 <div

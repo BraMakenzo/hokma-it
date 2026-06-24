@@ -32,7 +32,10 @@ export default function Intro() {
               ))}
             </div>
             <div className="mt-10">
-              <Link href="/about" className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors"
+              >
                 Learn more about us
                 <span aria-hidden="true">→</span>
               </Link>
@@ -49,12 +52,12 @@ export default function Intro() {
               <div className="mt-2 text-sm text-gray-500 font-medium">Clients Served</div>
             </div>
             <div className="bg-gray-50 rounded-3xl p-8 text-center border border-gray-100">
-              <div className="text-5xl font-bold text-gray-900">Level 1</div>
-              <div className="mt-2 text-sm text-gray-500 font-medium">B-BBEE Contributor</div>
+              <div className="text-5xl font-bold text-gray-900">3</div>
+              <div className="mt-2 text-sm text-gray-500 font-medium">Market Segments</div>
             </div>
             <div className="bg-blue-50 rounded-3xl p-8 text-center">
-              <div className="text-5xl font-bold text-blue-700">100%</div>
-              <div className="mt-2 text-sm text-blue-600 font-medium">Black-Owned</div>
+              <div className="text-5xl font-bold text-blue-700">L1</div>
+              <div className="mt-2 text-sm text-blue-600 font-medium">B-BBEE Status</div>
             </div>
           </div>
         </div>

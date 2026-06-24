@@ -6,14 +6,15 @@ const projects = [
     client: "Mausse Legacy (TA Legacy Stationers)",
     industry: "Retail",
     description:
-      "Hokma IT has partnered with Mausse Legacy, trading as Legacy Stationers in Mogwase, supporting their technology and office supply needs.",
-    tags: ["IT Services", "Office Supplies"],
+      "Hokma IT has partnered with Mausse Legacy, trading as Legacy Stationers in Mogwase, providing ongoing IT services, computer hardware and office supply support to keep their daily operations running smoothly and efficiently.",
+    tags: ["IT Services", "Office Supplies", "Hardware"],
   },
 ];
 
 export default function ProjectsPage() {
   return (
     <>
+      {/* Hero */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 text-white">
         <div className="max-w-7xl mx-auto px-6 py-32">
           <h1 className="text-5xl md:text-7xl font-bold max-w-4xl leading-tight">
@@ -25,6 +26,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
+      {/* Project Cards */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <h2 className="text-4xl font-bold mb-4">Client Partnerships</h2>
         <p className="text-gray-500 mb-12 max-w-2xl">
@@ -70,6 +72,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold">Have a project in mind?</h2>

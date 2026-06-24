@@ -34,7 +34,6 @@ const industries = [
     solution:
       "We deploy and manage technology platforms that improve connectivity, streamline administration and enable modern digital learning environments.",
     capabilities: [
-      "Campus networking & Wi-Fi",
       "Device supply & management",
       "Learning platform support",
       "IT maintenance & support",
@@ -50,7 +49,7 @@ const industries = [
       "High-availability infrastructure",
       "Data security & backup",
       "Compliance-ready systems",
-      "24/7 managed support",
+      "Business hours managed support",
     ],
   },
   {
@@ -133,11 +132,8 @@ export default function IndustriesPage() {
                 {industry.solution}
               </p>
             </div>
-
             <div className="bg-blue-50 rounded-2xl p-8">
-              <h4 className="font-bold text-blue-700 mb-6">
-                Key Capabilities
-              </h4>
+              <h4 className="font-bold text-blue-700 mb-6">Key Capabilities</h4>
               <ul className="space-y-4">
                 {industry.capabilities.map((cap) => (
                   <li key={cap} className="flex items-start gap-3 text-gray-700">
